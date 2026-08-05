@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NYC Airbnb Room Type Predictor</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Main Container -->
+    <section class="container">
+
+        <!-- Left Side -->
+        <div class="left">
+
+            <div class="logo">
+                <i class="fa-solid fa-building"></i>
+            </div>
+
+            <h1>
+                NYC Airbnb
+                <span>Room Type Predictor</span>
+            </h1>
+
+            <p>
+                Predict whether an Airbnb listing belongs to
+                Entire Home, Private Room or Shared Room
+                using Machine Learning.
+            </p>
+
+        </div>
+
+        <!-- Right Side -->
+        <div class="right">
+
+            <div class="glass-card">
+
+                <h2>Prediction Form</h2>
+
+                <form id="predictionForm">
+
+                    <div class="grid">
+
+                        <div class="input-box">
+                            <label>Latitude</label>
+                            <input type="number" step="any" id="latitude" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Longitude</label>
+                            <input type="number" step="any" id="longitude" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Price ($)</label>
+                            <input type="number" id="price" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Minimum Nights</label>
+                            <input type="number" id="minimum_nights" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Number of Reviews</label>
+                            <input type="number" id="number_of_reviews" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Reviews / Month</label>
+                            <input type="number" step="any" id="reviews_per_month" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Host Listings</label>
+                            <input type="number" id="calculated_host_listings_count" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Availability (365)</label>
+                            <input type="number" id="availability_365" required>
+                        </div>
+
+                        <div class="input-box">
+                            <label>Neighbourhood Group</label>
+
+                            <select id="neighbourhood_group">
+
+                                <option>Bronx</option>
+                                <option>Brooklyn</option>
+                                <option>Manhattan</option>
+                                <option>Queens</option>
+                                <option>Staten Island</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="input-box full">
+
+                            <label>Neighbourhood</label>
+
+                            <input
+                            type="text"
+                            id="neighbourhood"
+                            placeholder="Enter Neighbourhood Name"
+                            required>
+
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="btn">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        Predict Room Type
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Result Card -->
+
+    <section class="result-section">
+
+        <div class="result-card">
+
+            <h2>Prediction Result</h2>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Predicting...
+            </div>
+
+            <div id="result">
+
+                <h3 id="roomType">
+                    --
+                </h3>
+
+                <div class="probabilities">
+
+                    <div class="progress-box">
+                        <span>Entire Home</span>
+
+                        <div class="progress">
+                            <div class="fill" id="entire"></div>
+                        </div>
+
+                        <small id="entireText">0%</small>
+                    </div>
+
+                    <div class="progress-box">
+                        <span>Private Room</span>
+
+                        <div class="progress">
+                            <div class="fill" id="private"></div>
+                        </div>
+
+                        <small id="privateText">0%</small>
+                    </div>
+
+                    <div class="progress-box">
+                        <span>Shared Room</span>
+
+                        <div class="progress">
+                            <div class="fill" id="shared"></div>
+                        </div>
+
+                        <small id="sharedText">0%</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
